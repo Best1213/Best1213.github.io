@@ -124,5 +124,32 @@
         document.getElementById("video-source").src = videoUrl;
     }
 </script>
+	    <script>
+var ua = navigator.userAgent.toLowerCase();
+var isAndroid = ua.indexOf("android") > -1 && ua.indexOf("mobile") > -1;
+
+if(isAndroid) {
+  // 对于 Android 端普通浏览器，使用 Flv.js 播放器
+  if (flvjs.isSupported()) {
+    var videoElement = document.getElementById('video-source');
+    var flvPlayer = flvjs.createPlayer({
+        type: 'flv',
+        url: 'videoUrl'
+    });
+    flvPlayer.attachMediaElement(videoElement);
+    flvPlayer.load();
+  }
+} else {
+  // 对于其他浏览器，使用 HTML5 video 元素
+  var videoElement = document.getElementById('video-source');
+  var sourceElement = document.createElement('source');
+  sourceElement.setAttribute('src', 'videoUrl');
+  sourceElement.setAttribute('type', 'video/mp4');
+  videoElement.appendChild(sourceElement);
+  videoElement.load();
+}
+
+	</script>
+
 </body>
 </html>

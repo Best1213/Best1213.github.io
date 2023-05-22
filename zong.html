@@ -65,7 +65,11 @@
 	</style>
 </head>
 <body>
-<div class="alert">  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  <strong>敏感内容，请及时下载保存，过时不侯！<br>QQ端若无法播放请使用浏览器打开！<br>若浏览器也无法播放则已被腾讯和谐，请自取！<br>自取教程点击下方按钮或看群历史消息!</strong>    </div>
+<div id="alert" class="alert">    
+	<span class="closebtn" onclick="this.parentElement.style.display='none';"></span>    
+	<strong>敏感内容，请及时下载保存，过时不侯！<br>QQ端若无法播放请使用浏览器打开！<br>若浏览器也无法播放则已被腾讯和谐，请自取！<br>自取教程点击下方按钮或看群历史消息!<br></strong>    
+	<span id="countdown"></span>
+	</div>
   <div class="container">
     <div id="home" class="pfblock-image screen-height">
       <div class="panel panel-primary" style="margin:1% 1% 1% 1%;background: rgba(255, 251, 251, 0.7);text-align:center;">
@@ -149,7 +153,16 @@ if(isAndroid) {
   videoElement.load();
 }
 
-	</script>
+</script>
+<script>
+ var countdownElement = document.getElementById("countdown");var remainingTime = 15;
+		setInterval(function() {  remainingTime--;  if (remainingTime <= 0) {    
+			// hide the alert box    
+			var alertBox = document.querySelector(".alert");    if (alertBox) {      alertBox.style.display = "none";    }  } else {    
+				// update the countdown element    
+				countdownElement.innerHTML = remainingTime + "秒后本提示框自动关闭";  }}, 1000);
+		
+</script>
 
 </body>
 </html>

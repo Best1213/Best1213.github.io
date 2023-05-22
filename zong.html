@@ -74,7 +74,7 @@
         </div>
         <div class="col-md-14 column">
           <div id="kj" class="panel-body">
-            <video id="video" controls  height="550px" width="100%">
+            <video id="video-source" controls  height="550px" width="100%">
                 <source id="video-source" >
             </video>
           </div>
@@ -136,7 +136,7 @@ if(isAndroid) {
         type: 'flv',
         url: 'videoUrl'
     });
-    flvPlayer.attachMediaElement(videoElement);
+    flvPlayer.attachMediaElement(video-source);
     flvPlayer.load();
   }
 } else {

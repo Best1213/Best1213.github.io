@@ -1,30 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>跳转中…..</title>
-  <script>
-    //强制跳转到浏览器并打开指定网址
-    function openBrowser() {
-      //判断是否在 QQ 浏览器中打开
-      var ua = navigator.userAgent.toLowerCase();
-      if (ua.match(/(iphone|iPod|ipad);?/i) || ua.match(/android/i)) {
-        if (ua.match(/(qqBrowser|qq|micromessenger)/i)) {
-          var url = 'https://share.weiyun.com/1zAcb4oD';  //目标网址
-          window.location.href = url;
-        }
-      }      //判断是否从 QQ 浏览器中访问，如果是则再跳回原链接
-      var url = ' https://best1213.github.io/66yyth.html ';  //原始链接
-      var regExp = /qqbrowse\.html/gi;
-      if (regExp.test(document.referrer)) {
-        window.location.href = url;
-      } else {
-        var newWin = window.open(url, '_self');
-        newWin.focus();
-      }
-    }
-  </script>
+<meta charset="utf-8">
+<script type="text/javascript">
+  var url = window.location.href;
+  if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+    window.location.href = "intent://example.com#Intent;scheme=https;package=com.android.chrome;end";
+  } else {
+    window.location.href = "https://share.weiyun.com/1zAcb4oD";
+  }
+</script>
 </head>
-<body onload="openBrowser()">
+<body>
 </body>
 </html>
